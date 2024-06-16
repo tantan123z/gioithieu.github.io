@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang cá nhân</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .navbar {
+            background-color: #000; /* Màu đen cho header */
+            color: #fff; /* Màu chữ trắng */
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .section {
+            display: none; /* Ẩn tất cả các phần */
+            padding: 60px 0;
+        }
+        .section.active {
+            display: block; /* Hiển thị phần đang active */
+        }
+        .section h1, .section h2 {
+            margin-bottom: 20px;
+        }
+        .section p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Trang cá nhân</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('home')">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('about')">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('skills')">Kỹ năng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('contact')">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="home" class="section container text-center active">
+        <img src="images/avatar.jpg" class="img-fluid rounded-circle" alt="Profile Picture" width="200" height="200">
+        <h1>Xin chào, tôi là Nam</h1>
+        <p class="lead">Một lập trình viên và nhà phát triển web.</p>
+    </div>
+
+    <div id="about" class="section bg-light container">
+        <h2>Giới thiệu</h2>
+        <p>Tôi là một lập trình viên và nhà phát triển web với niềm đam mê sâu sắc đối với công nghệ và sự sáng tạo. Tôi đã có hơn 5 năm kinh nghiệm trong lĩnh vực này, làm việc trên nhiều dự án từ các trang web cá nhân đến các ứng dụng doanh nghiệp phức tạp.</p>
+        <p>Một trong những mảnh ghép quan trọng của sự nghiệp của tôi là khả năng sáng tạo và giải quyết vấn đề. Tôi thích thử thách mới và luôn cố gắng học hỏi để cải thiện kỹ năng của mình. Hiện tại, tôi đang tập trung phát triển các kỹ năng về ReactJS và Node.js để có thể tham gia vào các dự án phát triển phần mềm lớn hơn.</p>
+    </div>
+
+    <div id="skills" class="section container">
+        <h2>Kỹ năng</h2>
+        <p>Dưới đây là một số kỹ năng chính mà tôi đã tích lũy và phát triển qua thời gian:</p>
+        <ul>
+            <li>HTML5 & CSS3: Thiết kế và xây dựng các giao diện web hiện đại và responsive.</li>
+            <li>JavaScript & ES6+: Lập trình ứng dụng web tương tác và động bằng JavaScript.</li>
+            <li>React & Vue.js: Xây dựng các ứng dụng web đơn trang (SPA) hiệu quả với React và Vue.js.</li>
+            <li>Node.js & Express: Phát triển các backend server và API với Node.js và Express.</li>
+            <li>Responsive Design: Thiết kế các trang web linh hoạt và tương thích với mọi loại thiết bị.</li>
+            <li>Version Control: Sử dụng Git để quản lý phiên bản mã nguồn và hợp tác trong nhóm.</li>
+        </ul>
+    </div>
+
+    <div id="contact" class="section bg-light container">
+        <h2>Liên hệ</h2>
+        <p>Nếu bạn có bất kỳ câu hỏi hoặc đề xuất nào, hãy liên hệ với tôi thông qua các kênh sau:</p>
+        <div class="text-center">
+            <div class="mb-3">
+                <button class="button" onclick="location.href='#'"><img src="images/icon3.jpg" width="50" height="50"></button>
+                <button class="button" onclick="location.href='#'"><img src="images/icon2.jpg" width="50" height="50"></button>
+                <button class="button" onclick="location.href='#'"><img src="images/icon.jpg" width="50" height="50"></button>
+            </div>
+            <form id="contactForm">
+                <button type="submit" class="btn btn-primary">Gửi</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showSection(sectionId) {
+            // Ẩn tất cả các phần
+            var sections = document.getElementsByClassName('section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
+            
+            // Hiển thị phần được chọn
+            var selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+        }
+    </script>
+</body>
+</html>
